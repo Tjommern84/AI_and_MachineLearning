@@ -44,7 +44,8 @@ SCRIPTS = [
     "Group6_LC_ML_Pipeline.py",    # Task 5 – maskinlæringspipeline
     "Compare_Biology.py",          # Biologisk ↔ ML-overlapp
     "plot_results_tasks.py",       # Plott fra Task 1–4
-    "compare_visuals_biology_ml.py" # Visuell sammenligning Biologi ↔ ML
+    "plot_result_ML.py"            # Plott fra ML-pipeline
+
 ]
 
 # --------------------------------------------------------------
@@ -59,8 +60,7 @@ for script in SCRIPTS:
         continue
 
     print(f"\n🔹 Kjører: {path.name}")
-    result = subprocess.run(["python", str(path)], capture_output=True, text=True,
-                            encoding="utf-8",check=True, timeout=1800) # 30 minutes
+    result = subprocess.run(["python", str(path)], text=True)
     print(result.stdout)
 
     if result.returncode != 0:
